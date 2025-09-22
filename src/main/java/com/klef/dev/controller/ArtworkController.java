@@ -15,7 +15,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/artworks")
-@CrossOrigin(origins = "http://localhost:5173") // React frontend
+@CrossOrigin(origins = "http://localhost:3000") // React frontend
 public class ArtworkController {
 
     @Autowired
