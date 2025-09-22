@@ -16,11 +16,14 @@ public class WebConfig implements WebMvcConfigurer {
     }
 
     // For fixing CORS issue
+    
     @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**") // all endpoints
-                .allowedOrigins("*") // allow all origins (for dev)
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                .allowedHeaders("*");
-    }
+public void addCorsMappings(CorsRegistry registry) {
+    registry.addMapping("/**")
+            .allowedOrigins("http://localhost:3000") // React frontend
+            .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+            .allowedHeaders("*")
+            .allowCredentials(true);
+}
+
 }
