@@ -17,7 +17,7 @@ public class UserController {
 
     // ✅ LOGIN
     @PostMapping("/login")
-    @CrossOrigin(origins = "http://localhost:5173") // ✅ explicit for POST
+    @CrossOrigin(origins = "http://localhost:3000") // ✅ explicit for POST
     public ResponseEntity<?> login(@RequestBody User loginRequest) {
         try {
             User user = userService.findByUsername(loginRequest.getUsername());
@@ -42,7 +42,7 @@ public class UserController {
 
     // ✅ REGISTER
     @PostMapping("/register")
-    @CrossOrigin(origins = "http://localhost:5173") // ✅ explicit for POST
+    @CrossOrigin(origins = "http://localhost:3000") // ✅ explicit for POST
     public ResponseEntity<String> register(@RequestBody User user) {
         try {
             userService.registerUser(user);
