@@ -8,22 +8,18 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
-    // For serving static uploads
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/uploads/**")
-                .addResourceLocations("file:uploads/"); // from project-root/uploads
+                .addResourceLocations("file:uploads/");
     }
 
-    // For fixing CORS issue
-    
     @Override
-public void addCorsMappings(CorsRegistry registry) {
-    registry.addMapping("/**")
-            .allowedOrigins("http://localhost:3000") // React frontend
-            .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-            .allowedHeaders("*")
-            .allowCredentials(true);
-}
-
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("http://localhost:3000") // 👈 match frontend
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedHeaders("*")
+                .allowCredentials(true);
+    }
 }
